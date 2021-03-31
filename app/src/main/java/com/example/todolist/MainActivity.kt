@@ -1,20 +1,29 @@
 package com.example.todolist
 
+import android.app.DatePickerDialog
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.DatePicker
 import com.google.gson.Gson
+import com.jakewharton.threetenabp.AndroidThreeTen
 import kotlinx.android.synthetic.main.activity_main.*
+import org.threeten.bp.LocalDate
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var date: LocalDate
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        AndroidThreeTen.init(this)
+        date = LocalDate.now()
 
         displayTasks()
 
@@ -31,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 Log.e("error", e.message ?: "")
             }
 
-            val newItem = TaskItem(editText.text.toString(), false)
+            val newItem = TaskItem(editText.text.toString(), false, date)
             list.add(newItem)
 
             saveTasks(list)
@@ -80,6 +89,10 @@ class MainActivity : AppCompatActivity() {
         val gson = Gson()
 
         return gson.fromJson(streamReader, ArrayTaskItems::class.java).array
+    }
+
+    fun showDatePickerDialog(v: View) {
+        DatePickerFragment(this).show(this.supportFragmentManager, "datePicker")
     }
 
     companion object {

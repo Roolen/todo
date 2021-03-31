@@ -14,14 +14,26 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="50dp"
+        android:autofillHints=""
         android:hint="@string/enter_text"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/calender_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/font_awesome"
+        android:text="@string/calender"
+        android:textSize="20sp"
+        android:onClick="showDatePickerDialog"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button2" />
 
     <Button
         android:id="@+id/button2"
@@ -30,6 +42,7 @@
         android:fontFamily="@font/font_awesome"
         android:text="@string/create_task"
         android:textSize="20sp"
+        android:layout_marginEnd="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

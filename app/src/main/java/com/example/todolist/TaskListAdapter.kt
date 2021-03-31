@@ -24,6 +24,7 @@ class TaskListAdapter(context: Context,
         val item = items[position]
 
         view.text_task?.text = item.text
+        view.date_text?.text = item.date.toString()
         view.checker.isChecked = item.isCheck
 
         view.delete_button.setOnClickListener {
