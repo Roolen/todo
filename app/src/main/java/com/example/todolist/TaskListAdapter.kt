@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
 import android.widget.CompoundButton
 import kotlinx.android.synthetic.main.item_list.view.*
+import org.threeten.bp.LocalDate
 
 class TaskListAdapter(context: Context,
                       resource: Int,
@@ -27,6 +28,10 @@ class TaskListAdapter(context: Context,
         view.text_task?.text = item.text
         view.date_text?.text = item.date.toString()
         view.checker.isChecked = item.isCheck
+
+        if (item.date < LocalDate.now()) {
+            view.date_text.setTextColor(context.getColor(R.color.red))
+        }
 
         view.delete_button.setOnClickListener {
             items.removeAt(position)

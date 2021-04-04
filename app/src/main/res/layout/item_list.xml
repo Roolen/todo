@@ -16,11 +16,11 @@
         android:id="@+id/text_task"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
         android:maxWidth="200dp"
         android:textColor="#5050a0"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/date_text"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_button"
         app:layout_constraintStart_toEndOf="@+id/checker"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,10 +29,11 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textColor="#000055"
-        android:layout_marginEnd="5dp"
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/edit_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/checker"
+        app:layout_constraintTop_toBottomOf="@+id/text_task" />
 
     <Button
         android:id="@+id/edit_button"
