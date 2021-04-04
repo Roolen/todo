@@ -2,6 +2,7 @@ package com.example.todolist
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,13 +30,20 @@ class TaskListAdapter(context: Context,
 
         view.delete_button.setOnClickListener {
             items.removeAt(position)
-            ma.saveTasks(items)
+            ma.tasksManager.saveTasks(items)
             ma.displayTasks()
+        }
+
+        view.edit_button.setOnClickListener {
+            val intentEdit = Intent(ma, EditActivity::class.java)
+            intentEdit.putExtra("index_edit", item.id)
+            ma.startActivity(intentEdit)
         }
 
         view.checker.setOnCheckedChangeListener { _: CompoundButton, b: Boolean ->
             items[position].isCheck = b
-            ma.saveTasks(items)
+            ma.tasksManager.saveTasks(items)
+            ma.displayTasks()
         }
 
         return view

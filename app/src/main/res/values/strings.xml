@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Менеджер Задач</string>
     <string name="enter_text">Введите текст</string>
+    <string name="edit_text">Редактирование</string>
+    <string name="save_text">Сохранить</string>
     <string name="drop_button"></string>
     <string name="create_task"></string>
     <string name="calender"></string>
+    <string name="edit"></string>
 </resources>
